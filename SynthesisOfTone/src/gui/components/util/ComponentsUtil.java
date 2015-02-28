@@ -1,10 +1,12 @@
-package GUI;
+package gui.components.util;
 
 import java.awt.Font;
 import java.util.ArrayList;
 
 import javax.swing.JComponent;
 import javax.swing.JLabel;
+
+import GUI.Panel;
 
 public class ComponentsUtil {
 

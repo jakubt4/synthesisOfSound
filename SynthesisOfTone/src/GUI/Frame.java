@@ -1,5 +1,7 @@
 package GUI;
 
+import gui.components.Components;
+
 import javax.swing.JFrame;
 
 public class Frame extends JFrame {

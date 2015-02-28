@@ -1,6 +1,5 @@
 package gui.components;
 
-import gui.Panel;
 import gui.components.util.ComponentsUtil;
 
 import java.awt.Font;
@@ -8,8 +7,9 @@ import java.util.ArrayList;
 
 import javax.swing.JComponent;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
-public class Title extends Panel implements CreateComponents {
+public class Title extends JPanel implements InterfaceComponents {
 
     /**
      * 
@@ -18,11 +18,10 @@ public class Title extends Panel implements CreateComponents {
 
     private JLabel jLabel;
 
-    private final ArrayList<JComponent> components;
+    private final ArrayList<JComponent> components = new ArrayList<>();
 
     public Title() {
         this.setLayout(null);
-        components = new ArrayList<>();
     }
 
     @Override
@@ -36,7 +35,7 @@ public class Title extends Panel implements CreateComponents {
     }
 
     @Override
-    public Panel getPanel() {
+    public JPanel getPanel() {
         ComponentsUtil.setBounds(this, 10, 5, 300, 40);
         ComponentsUtil.addComponentsToPanel(components, this);
         return this;

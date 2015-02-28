@@ -1,12 +1,12 @@
 package gui.components.util;
 
-import gui.Panel;
-
 import java.awt.Font;
 import java.util.ArrayList;
 
+import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 public class ComponentsUtil {
 
@@ -20,7 +20,7 @@ public class ComponentsUtil {
     }
 
     public static void addComponentsToPanel(
-            ArrayList<JComponent> componentsInPanel, Panel panel) {
+            ArrayList<JComponent> componentsInPanel, JPanel panel) {
         for (JComponent component : componentsInPanel) {
             panel.add(component);
         }
@@ -35,6 +35,11 @@ public class ComponentsUtil {
             int y, int width, int height) {
         // TODO Auto-generated method stub
         component.setBounds(x, y, width, height);
+    }
+
+    public static JButton createButton(String string) {
+        // TODO Auto-generated method stub
+        return new JButton(string);
     }
 
 }

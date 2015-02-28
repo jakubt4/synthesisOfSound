@@ -1,6 +1,6 @@
 package gui.components;
 
-import GUI.Panel;
+import gui.Panel;
 
 public interface CreateComponents {
 

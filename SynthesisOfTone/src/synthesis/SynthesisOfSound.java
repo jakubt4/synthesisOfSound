@@ -1,6 +1,6 @@
 package synthesis;
 
-import GUI.Window;
+import gui.Window;
 
 public class SynthesisOfSound{
 

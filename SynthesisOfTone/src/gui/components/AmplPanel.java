@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 public class AmplPanel extends JPanel implements InterfaceElementComponents {
 
     private static final long serialVersionUID = 1L;
-    private final double[] ampls = { 0 };
+    private final double[] ampls = { 1, 1 };
     private final ArrayList<JComponent> components = new ArrayList<>();
 
     @Override

@@ -5,7 +5,12 @@ import javax.swing.JPanel;
 public class FrekvPanel extends JPanel implements InterfaceComponents {
 
     private static final long serialVersionUID = 1L;
-    private final int frekv = 1000;
+    private final Components components;
+
+    public FrekvPanel(Components components) {
+        this.components = components;
+        // TODO Auto-generated constructor stub
+    }
 
     @Override
     public void createComponentsForPanel() {

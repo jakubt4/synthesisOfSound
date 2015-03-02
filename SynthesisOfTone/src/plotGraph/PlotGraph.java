@@ -12,14 +12,13 @@ import org.jfree.data.xy.XYSeriesCollection;
 
 public class PlotGraph {
 
-    private static final long serialVersionUID = 1L;
-    private final int frekv;
-    private final double[] ampls;
-    private final double[] phases;
+    private int frekv;
+    private double[] ampls;
+    private double[] phases;
 
     XYDataset xyDataset;
 
-    public PlotGraph(double[] ampls, double[] phases, int frekv) {
+    public void setAll(double[] ampls, double[] phases, int frekv) {
         this.ampls = ampls;
         this.phases = phases;
         this.frekv = frekv;
@@ -34,17 +33,18 @@ public class PlotGraph {
         double sinus = 0;
         double y = 0;
         double val = (1 / (double) frekv) / 360;
-
         XYSeries sinSeries = new XYSeries("f(t)");
+
         for (double x = 0.0; x < 361; x += 1) {
             sinus = 0;
             for (int i = 0; i < ampls.length; i++) {
                 sinus += (ampls[i] * Math.sin((x / (180 / (i + 1))) * Math.PI
                         + (phases[i] * 57.32)));
             }
+
+            // System.out.println(sinus);
             y += val;
             sinSeries.add(y, sinus);
-
         }
         XYSeriesCollection seriesCollection = new XYSeriesCollection();
         seriesCollection.addSeries(sinSeries);
@@ -63,5 +63,9 @@ public class PlotGraph {
         xyplot.setRangeGridlinePaint(Color.white);
 
         return jfreechart;
+    }
+
+    public double[] getAmpls() {
+        return ampls;
     }
 }

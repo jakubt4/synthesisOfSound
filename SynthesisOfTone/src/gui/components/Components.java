@@ -1,13 +1,16 @@
 package gui.components;
 
+import gui.Frame;
+
 import java.awt.Container;
+import java.util.ArrayList;
 import java.util.logging.Logger;
 
-import org.jfree.chart.JFreeChart;
+import javax.swing.JComponent;
 
 import plotGraph.PlotGraph;
 
-public class Components {
+public class Components implements InterfaceForAmplsPhases {
 
     Logger LOG = Logger.getLogger("Components");
 
@@ -24,28 +27,32 @@ public class Components {
     private SettingButtonsPanel settingButtonsPanel;
     private ControllButtonsPanel controllPanel;
 
-    private JFreeChart chart;
+    private Frame frame;
 
     public Components(Container container) {
         this.container = container;
         container.setLayout(null);
     }
 
-    public void init() {
+    public void init(Frame frame) {
+        this.frame = frame;
         title = new Title();
         create(title);
 
-        amplPanel = new AmplPanel();
+        plotGraph = new PlotGraph();
+
+        amplPanel = new AmplPanel(this, plotGraph);
         create(amplPanel);
 
-        phasePanel = new PhasePanel();
+        phasePanel = new PhasePanel(this, plotGraph);
         create(phasePanel);
 
-        frekvPanel = new FrekvPanel();
+        frekvPanel = new FrekvPanel(this);
         create(frekvPanel);
 
-        plotGraph = new PlotGraph(amplPanel.getElements(),
-                phasePanel.getElements(), frekvPanel.getElement());
+        plotGraph.setAll(amplPanel.getElements(amplPanel.getPanelTextField()),
+                phasePanel.getElements(amplPanel.getPanelTextField()),
+                frekvPanel.getElement());
         plotGraph.init();
 
         graphPanel = new GraphPanel(plotGraph.createChart());
@@ -58,7 +65,7 @@ public class Components {
         create(controllPanel);
     }
 
-    private <T extends InterfaceComponents> void create(T panel) {
+    public <T extends InterfaceComponents> void create(T panel) {
         panel.createComponentsForPanel();
         try {
             container.add(panel.getPanel());
@@ -66,5 +73,29 @@ public class Components {
             LOG.warning("Failed to add " + panel.getClass().getSimpleName()
                     + " to container - " + e.toString());
         }
+    }
+
+    public ArrayList<JComponent> getAmpls() {
+        return ampls;
+    }
+
+    public ArrayList<JComponent> getPhases() {
+        return phases;
+    }
+
+    public int getFrekv() {
+        return frekv;
+    }
+
+    public Frame getFrame() {
+        return frame;
+    }
+
+    public GraphPanel getGraphPanel() {
+        return graphPanel;
+    }
+
+    public void setGraphPanel(GraphPanel graphPanel2) {
+        graphPanel = graphPanel2;
     }
 }

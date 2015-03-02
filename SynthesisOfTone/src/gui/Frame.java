@@ -27,6 +27,6 @@ public class Frame extends JFrame {
         this.setResizable(this.resizableOfWindow);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        components.init();
+        components.init(this);
     }
 }

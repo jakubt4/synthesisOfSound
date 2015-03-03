@@ -1,8 +1,10 @@
-package gui.components;
+package gui.components.panels;
+
+import gui.components.PartPanel;
 
 import javax.swing.JPanel;
 
-public class SettingButtonsPanel extends JPanel implements InterfaceComponents {
+public class SettingButtonsPanel extends JPanel implements PartPanel {
 
     private static final long serialVersionUID = 1L;
 

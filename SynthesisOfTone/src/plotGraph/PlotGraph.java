@@ -64,8 +64,4 @@ public class PlotGraph {
 
         return jfreechart;
     }
-
-    public double[] getAmpls() {
-        return ampls;
-    }
 }

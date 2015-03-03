@@ -1,16 +1,26 @@
 package gui.components;
 
 import gui.Frame;
+import gui.components.panels.ControllButtonsPanel;
+import gui.components.panels.FrekvPanel;
+import gui.components.panels.GraphPanel;
+import gui.components.panels.PanelAmpTextField;
+import gui.components.panels.PanelAmplSlider;
+import gui.components.panels.PanelPhSlider;
+import gui.components.panels.PanelPhTextField;
+import gui.components.panels.SettingButtonsPanel;
+import gui.components.panels.Title;
 
+import java.awt.Color;
 import java.awt.Container;
 import java.util.ArrayList;
 import java.util.logging.Logger;
 
-import javax.swing.JComponent;
+import javax.swing.JTextField;
 
 import plotGraph.PlotGraph;
 
-public class Components implements InterfaceForAmplsPhases {
+public class Components implements Elements {
 
     Logger LOG = Logger.getLogger("Components");
 
@@ -18,20 +28,20 @@ public class Components implements InterfaceForAmplsPhases {
 
     private Title title;
     private GraphPanel graphPanel;
-    private AmplPanel amplPanel;
-    private PhasePanel phasePanel;
     private FrekvPanel frekvPanel;
-
+    private PanelAmpTextField panelAmpTextField;
+    private PanelAmplSlider panelAmplSlider;
+    private PanelPhTextField panelPhTextField;
+    private PanelPhSlider panelPhSlider;
     private PlotGraph plotGraph;
-
     private SettingButtonsPanel settingButtonsPanel;
     private ControllButtonsPanel controllPanel;
-
     private Frame frame;
 
     public Components(Container container) {
         this.container = container;
         container.setLayout(null);
+        container.setBackground(Color.LIGHT_GRAY);
     }
 
     public void init(Frame frame) {
@@ -41,18 +51,22 @@ public class Components implements InterfaceForAmplsPhases {
 
         plotGraph = new PlotGraph();
 
-        amplPanel = new AmplPanel(this, plotGraph);
-        create(amplPanel);
+        panelAmpTextField = new PanelAmpTextField();
+        create(panelAmpTextField);
+        panelAmplSlider = new PanelAmplSlider(this);
+        create(panelAmplSlider);
 
-        phasePanel = new PhasePanel(this, plotGraph);
-        create(phasePanel);
+        panelPhTextField = new PanelPhTextField();
+        create(panelPhTextField);
+        panelPhSlider = new PanelPhSlider(this);
+        create(panelPhSlider);
 
         frekvPanel = new FrekvPanel(this);
         create(frekvPanel);
+        setFrekv();
 
-        plotGraph.setAll(amplPanel.getElements(amplPanel.getPanelTextField()),
-                phasePanel.getElements(amplPanel.getPanelTextField()),
-                frekvPanel.getElement());
+        plotGraph = new PlotGraph();
+        plotGraph.setAll(getDoubles(ampls), getDoubles(phases), frekv.get(0));
         plotGraph.init();
 
         graphPanel = new GraphPanel(plotGraph.createChart());
@@ -63,9 +77,20 @@ public class Components implements InterfaceForAmplsPhases {
 
         controllPanel = new ControllButtonsPanel();
         create(controllPanel);
+
     }
 
-    public <T extends InterfaceComponents> void create(T panel) {
+    public double[] getDoubles(ArrayList<JTextField> values) {
+        double[] doubles = new double[values.size()];
+        int i = 0;
+        for (JTextField value : values) {
+            doubles[i] = Double.parseDouble(value.getText());
+            i++;
+        }
+        return doubles;
+    }
+
+    public <T extends PartPanel> void create(T panel) {
         panel.createComponentsForPanel();
         try {
             container.add(panel.getPanel());
@@ -73,18 +98,6 @@ public class Components implements InterfaceForAmplsPhases {
             LOG.warning("Failed to add " + panel.getClass().getSimpleName()
                     + " to container - " + e.toString());
         }
-    }
-
-    public ArrayList<JComponent> getAmpls() {
-        return ampls;
-    }
-
-    public ArrayList<JComponent> getPhases() {
-        return phases;
-    }
-
-    public int getFrekv() {
-        return frekv;
     }
 
     public Frame getFrame() {
@@ -97,5 +110,9 @@ public class Components implements InterfaceForAmplsPhases {
 
     public void setGraphPanel(GraphPanel graphPanel2) {
         graphPanel = graphPanel2;
+    }
+
+    public void setFrekv() {
+        frekvPanel.setFrekv();
     }
 }

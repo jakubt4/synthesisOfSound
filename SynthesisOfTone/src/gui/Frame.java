@@ -23,7 +23,7 @@ public class Frame extends JFrame {
     }
 
     public void init() {
-        this.setTitle("Synthesis Of Sound");
+        this.setTitle("Synthesis Of Tone");
         this.setBounds(dimension.getX(), dimension.getY(),
                 dimension.getWidth(), dimension.getHeight());
         this.setResizable(this.resizableOfWindow);

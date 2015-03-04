@@ -38,7 +38,7 @@ public class PlotGraph {
         double sinus = 0;
         double y = 0;
         double val = (1 / (double) frekv) / 360;
-        XYSeries sinSeries = new XYSeries("f(t)");
+        XYSeries sinSeries = new XYSeries("");
 
         for (double x = 0.0; x < 361; x += 1) {
             sinus = 0;
@@ -55,8 +55,8 @@ public class PlotGraph {
     }
 
     public JFreeChart createChart() {
-        JFreeChart jfreechart = ChartFactory.createXYLineChart("f(t)", "t(s)",
-                "a", xyDataset, PlotOrientation.VERTICAL, true, true, false);
+        JFreeChart jfreechart = ChartFactory.createXYLineChart("", "t(s)", "",
+                xyDataset, PlotOrientation.VERTICAL, true, true, false);
         jfreechart.setBackgroundPaint(Color.white);
 
         XYPlot xyplot = (XYPlot) jfreechart.getPlot();

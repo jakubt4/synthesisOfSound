@@ -8,6 +8,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.util.logging.Logger;
 
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
 
@@ -25,7 +26,10 @@ public class PanelPhSlider extends AbstractListenerSlider {
 
     @Override
     public void createComponentsForPanel() {
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < NUMBER_OF_ELEMENTS.get(0); i++) {
+            JLabel label = new JLabel((i + 1) + ".");
+            this.add(label);
+
             JSlider slider = new JSlider();
             ComponentsUtil.setupSl(slider, 20, 200);
             addListener(slider, i);
@@ -49,9 +53,8 @@ public class PanelPhSlider extends AbstractListenerSlider {
                     ComponentsUtil.warning("Frekvency should not be null !!");
                 } else {
                     phases.get(i).setText(
-                            String.valueOf(((double) sl.getValue() / 100)
-                                    * Math.PI));
-
+                            String.format("%.4g%n",
+                                    ((double) sl.getValue() / 100) * Math.PI));
                     ComponentsUtil.doAction(components);
                 }
             }
@@ -61,7 +64,8 @@ public class PanelPhSlider extends AbstractListenerSlider {
 
     @Override
     public JPanel getPanel() {
-        ComponentsUtil.setPanelSettings(this, 850, 300, 250, 229, true);
+        ComponentsUtil.setPanelSettings(this, 330, 40, 235,
+                (NUMBER_OF_ELEMENTS.get(0) * 32) + 28 + 40, false);
         return this;
     }
 

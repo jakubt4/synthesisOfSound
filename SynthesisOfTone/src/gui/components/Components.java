@@ -4,10 +4,6 @@ import gui.Frame;
 import gui.components.panels.ControllButtonsPanel;
 import gui.components.panels.FrekvPanel;
 import gui.components.panels.GraphPanel;
-import gui.components.panels.PanelAmpTextField;
-import gui.components.panels.PanelAmplSlider;
-import gui.components.panels.PanelPhSlider;
-import gui.components.panels.PanelPhTextField;
 import gui.components.panels.SettingButtonsPanel;
 import gui.components.panels.Title;
 
@@ -29,10 +25,6 @@ public class Components implements Elements {
     private Title title;
     private GraphPanel graphPanel;
     private FrekvPanel frekvPanel;
-    private PanelAmpTextField panelAmpTextField;
-    private PanelAmplSlider panelAmplSlider;
-    private PanelPhTextField panelPhTextField;
-    private PanelPhSlider panelPhSlider;
     private PlotGraph plotGraph;
     private SettingButtonsPanel settingButtonsPanel;
     private ControllButtonsPanel controllPanel;
@@ -44,19 +36,16 @@ public class Components implements Elements {
     }
 
     public void init(Frame frame) {
+
+        NUMBER_OF_ELEMENTS.add(0, 7);
+
         this.frame = frame;
-        title = new Title();
+        title = new Title(this);
         create(title);
 
-        panelAmpTextField = new PanelAmpTextField();
-        create(panelAmpTextField);
-        panelAmplSlider = new PanelAmplSlider(this);
-        create(panelAmplSlider);
-
-        panelPhTextField = new PanelPhTextField();
-        create(panelPhTextField);
-        panelPhSlider = new PanelPhSlider(this);
-        create(panelPhSlider);
+        AmplPhasesSetUpFrame amplFrame = new AmplPhasesSetUpFrame(this);
+        amplFrame.init();
+        amplFrame.createComponentsForFrame();
 
         frekvPanel = new FrekvPanel(this);
         create(frekvPanel);
@@ -77,6 +66,8 @@ public class Components implements Elements {
 
         LOG.info("Init of " + this.getClass().getSimpleName()
                 + " was succesful.");
+
+        // System.out.println(sliderTest.getSize().getHeight());
     }
 
     public double[] getDoubles(ArrayList<JTextField> values) {

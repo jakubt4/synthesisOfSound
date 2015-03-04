@@ -51,7 +51,7 @@ public class WindowDimension {
     }
 
     public int getWidth() {
-        return WIDTH;
+        return WIDTH - (HEIGHT / 2);
     }
 
     public int getHeight() {

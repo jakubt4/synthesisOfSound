@@ -22,11 +22,11 @@ public class ControllButtonsPanel extends JPanel implements PartPanel {
     @Override
     public void createComponentsForPanel() {
         JButton start = new JButton("Start");
-        start.setBounds(300, 0, 100, 50);
+        start.setBounds(0, 0, 100, 35);
         this.add(start);
 
         JButton stop = new JButton("Stop");
-        stop.setBounds(500, 0, 100, 50);
+        stop.setBounds(150, 0, 100, 35);
         this.add(stop);
 
         LOG.info("Buttons added to panel.");
@@ -34,7 +34,7 @@ public class ControllButtonsPanel extends JPanel implements PartPanel {
 
     @Override
     public JPanel getPanel() {
-        ComponentsUtil.setPanelSettings(this, 10, 550, 600, 100, false);
+        ComponentsUtil.setPanelSettings(this, 610, 530, 400, 35, false);
         return this;
     }
 

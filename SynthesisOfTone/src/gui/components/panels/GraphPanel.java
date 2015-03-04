@@ -22,7 +22,7 @@ public class GraphPanel extends ChartPanel implements PartPanel {
 
     @Override
     public JPanel getPanel() {
-        ComponentsUtil.setPanelSettings(this, 10, 50, 800, 450, true);
+        ComponentsUtil.setPanelSettings(this, 60, 50, 800, 450, true);
         return this;
     }
 }

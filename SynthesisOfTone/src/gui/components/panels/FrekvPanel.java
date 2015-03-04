@@ -36,7 +36,7 @@ public class FrekvPanel extends JPanel implements PartPanel {
 
         Font font = new Font("Serif", Font.BOLD, 12);
 
-        jTextField = new JTextField("0");
+        jTextField = new JTextField("1000");
         jTextField.setBounds(110, 11, 60, 30);
         jTextField.setFont(font);
         this.add(jTextField);
@@ -69,7 +69,8 @@ public class FrekvPanel extends JPanel implements PartPanel {
 
     @Override
     public JPanel getPanel() {
-        ComponentsUtil.setPanelSettings(this, 850, 550, 415, 60, true);
+        // ComponentsUtil.setPanelSettings(this, 850, 550, 415, 60, true);
+        ComponentsUtil.setPanelSettings(this, 60, 520, 300, 50, true);
         return this;
     }
 

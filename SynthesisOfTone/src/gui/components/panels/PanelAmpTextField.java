@@ -22,7 +22,7 @@ public class PanelAmpTextField extends JPanel implements PartPanel {
 
     @Override
     public void createComponentsForPanel() {
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < NUMBER_OF_ELEMENTS.get(0); i++) {
             JTextField tf = new JTextField();
             tf.setText("0.0");
             tf.setEditable(false);
@@ -34,7 +34,8 @@ public class PanelAmpTextField extends JPanel implements PartPanel {
 
     @Override
     public JPanel getPanel() {
-        ComponentsUtil.setPanelSettings(this, 1110, 53, 40, 230, false);
+        ComponentsUtil.setPanelSettings(this, 245, 40, 35,
+                (NUMBER_OF_ELEMENTS.get(0) * 32), false);
         return this;
     }
 }

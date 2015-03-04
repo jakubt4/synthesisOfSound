@@ -1,10 +1,8 @@
 package gui.components.panels;
 
+import gui.components.ComponentsUtil;
 import gui.components.PartPanel;
 
-import java.awt.Color;
-
-import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
 import org.jfree.chart.ChartPanel;
@@ -24,9 +22,7 @@ public class GraphPanel extends ChartPanel implements PartPanel {
 
     @Override
     public JPanel getPanel() {
-        this.setBounds(10, 50, 800, 450);
-        this.setBorder(BorderFactory.createBevelBorder(0));
-        this.setBackground(Color.WHITE);
+        ComponentsUtil.setPanelSettings(this, 10, 50, 800, 450, true);
         return this;
     }
 }

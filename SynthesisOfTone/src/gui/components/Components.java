@@ -11,7 +11,6 @@ import gui.components.panels.PanelPhTextField;
 import gui.components.panels.SettingButtonsPanel;
 import gui.components.panels.Title;
 
-import java.awt.Color;
 import java.awt.Container;
 import java.util.ArrayList;
 import java.util.logging.Logger;
@@ -22,7 +21,8 @@ import plotGraph.PlotGraph;
 
 public class Components implements Elements {
 
-    Logger LOG = Logger.getLogger("Components");
+    private final Logger LOG = Logger
+            .getLogger(this.getClass().getSimpleName());
 
     private final Container container;
 
@@ -41,15 +41,12 @@ public class Components implements Elements {
     public Components(Container container) {
         this.container = container;
         container.setLayout(null);
-        container.setBackground(Color.LIGHT_GRAY);
     }
 
     public void init(Frame frame) {
         this.frame = frame;
         title = new Title();
         create(title);
-
-        plotGraph = new PlotGraph();
 
         panelAmpTextField = new PanelAmpTextField();
         create(panelAmpTextField);
@@ -78,6 +75,8 @@ public class Components implements Elements {
         controllPanel = new ControllButtonsPanel();
         create(controllPanel);
 
+        LOG.info("Init of " + this.getClass().getSimpleName()
+                + " was succesful.");
     }
 
     public double[] getDoubles(ArrayList<JTextField> values) {
@@ -93,7 +92,11 @@ public class Components implements Elements {
     public <T extends PartPanel> void create(T panel) {
         panel.createComponentsForPanel();
         try {
-            container.add(panel.getPanel());
+            if (container.add(panel.getPanel()) != null) {
+                LOG.info("Adding " + panel.getClass().getSimpleName()
+                        + " done.");
+            }
+
         } catch (NullPointerException e) {
             LOG.warning("Failed to add " + panel.getClass().getSimpleName()
                     + " to container - " + e.toString());

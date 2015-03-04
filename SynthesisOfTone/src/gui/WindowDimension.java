@@ -2,8 +2,12 @@ package gui;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.util.logging.Logger;
 
 public class WindowDimension {
+
+    private final Logger LOG = Logger
+            .getLogger(this.getClass().getSimpleName());
 
     private final Toolkit toolkit;
     private final Dimension dimension;
@@ -34,25 +38,23 @@ public class WindowDimension {
         HEIGHT = (int) (getDimensionY() / this.constantForWindSize);
         X = getDimensionX() / this.constantForWindPlace;
         Y = getDimensionY() / this.constantForWindPlace;
+
+        LOG.info("WindowDimension init was succesful.");
     }
 
     public int getX() {
-        // TODO Auto-generated method stub
         return X;
     }
 
     public int getY() {
-        // TODO Auto-generated method stub
         return Y;
     }
 
     public int getWidth() {
-        // TODO Auto-generated method stub
         return WIDTH;
     }
 
     public int getHeight() {
-        // TODO Auto-generated method stub
         return HEIGHT;
     }
 }

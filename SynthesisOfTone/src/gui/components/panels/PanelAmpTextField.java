@@ -1,14 +1,18 @@
 package gui.components.panels;
 
+import gui.components.ComponentsUtil;
 import gui.components.PartPanel;
 
-import java.awt.Color;
+import java.util.logging.Logger;
 
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class PanelAmpTextField extends JPanel implements PartPanel {
+
+    private final Logger LOG = Logger
+            .getLogger(this.getClass().getSimpleName());
 
     private static final long serialVersionUID = 1L;
 
@@ -23,14 +27,14 @@ public class PanelAmpTextField extends JPanel implements PartPanel {
             tf.setText("0.0");
             tf.setEditable(false);
             this.add(tf);
+            LOG.info("Added " + tf.getClass().getSimpleName() + " to panel.");
             ampls.add(tf);
         }
     }
 
     @Override
     public JPanel getPanel() {
-        this.setBounds(1110, 53, 40, 230);
-        this.setBackground(Color.LIGHT_GRAY);
+        ComponentsUtil.setPanelSettings(this, 1110, 53, 40, 230, false);
         return this;
     }
 }

@@ -1,13 +1,17 @@
 package gui.components.panels;
 
+import gui.components.ComponentsUtil;
 import gui.components.PartPanel;
 
-import java.awt.Color;
+import java.util.logging.Logger;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class ControllButtonsPanel extends JPanel implements PartPanel {
+
+    private final Logger LOG = Logger
+            .getLogger(this.getClass().getSimpleName());
 
     private static final long serialVersionUID = 1L;
 
@@ -24,12 +28,13 @@ public class ControllButtonsPanel extends JPanel implements PartPanel {
         JButton stop = new JButton("Stop");
         stop.setBounds(500, 0, 100, 50);
         this.add(stop);
+
+        LOG.info("Buttons added to panel.");
     }
 
     @Override
     public JPanel getPanel() {
-        this.setBounds(10, 550, 600, 100);
-        this.setBackground(Color.LIGHT_GRAY);
+        ComponentsUtil.setPanelSettings(this, 10, 550, 600, 100, false);
         return this;
     }
 

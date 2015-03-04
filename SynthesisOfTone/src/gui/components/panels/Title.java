@@ -4,11 +4,15 @@ import gui.components.PartPanel;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.util.logging.Logger;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class Title extends JPanel implements PartPanel {
+
+    private final Logger LOG = Logger
+            .getLogger(this.getClass().getSimpleName());
 
     private static final long serialVersionUID = 1L;
 
@@ -27,12 +31,13 @@ public class Title extends JPanel implements PartPanel {
         jLabel.setBounds(10, 5, 300, 40);
 
         this.add(jLabel);
+
+        LOG.info("Added " + jLabel.getClass().getSimpleName() + " to panel.");
     }
 
     @Override
     public JPanel getPanel() {
         this.setBounds(10, 5, 300, 40);
-        this.setBackground(Color.LIGHT_GRAY);
         return this;
     }
 

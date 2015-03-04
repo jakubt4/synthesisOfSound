@@ -1,6 +1,7 @@
 package plotGraph;
 
 import java.awt.Color;
+import java.util.logging.Logger;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
@@ -11,6 +12,9 @@ import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
 public class PlotGraph {
+
+    private final Logger LOG = Logger
+            .getLogger(this.getClass().getSimpleName());
 
     private int frekv;
     private double[] ampls;
@@ -26,6 +30,7 @@ public class PlotGraph {
 
     public void init() {
         xyDataset = createDataSet();
+        LOG.info("Dataset created.");
 
     }
 
@@ -41,8 +46,6 @@ public class PlotGraph {
                 sinus += (ampls[i] * Math.sin((x / (180 / (i + 1))) * Math.PI
                         + (phases[i] * 57.32)));
             }
-
-            // System.out.println(sinus);
             y += val;
             sinSeries.add(y, sinus);
         }
@@ -61,7 +64,7 @@ public class PlotGraph {
         xyplot.setBackgroundPaint(Color.lightGray);
         xyplot.setDomainGridlinePaint(Color.white);
         xyplot.setRangeGridlinePaint(Color.white);
-
+        LOG.info("JFreeChart setted.");
         return jfreechart;
     }
 }

@@ -4,18 +4,20 @@ import gui.components.Components;
 import gui.components.ComponentsUtil;
 import gui.components.PartPanel;
 
-import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.logging.Logger;
 
-import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class FrekvPanel extends JPanel implements PartPanel {
+
+    private final Logger LOG = Logger
+            .getLogger(this.getClass().getSimpleName());
 
     private static final long serialVersionUID = 1L;
     private JTextField jTextField;
@@ -36,7 +38,6 @@ public class FrekvPanel extends JPanel implements PartPanel {
 
         jTextField = new JTextField("0");
         jTextField.setBounds(110, 11, 60, 30);
-        jTextField.setBackground(Color.LIGHT_GRAY);
         jTextField.setFont(font);
         this.add(jTextField);
 
@@ -45,6 +46,8 @@ public class FrekvPanel extends JPanel implements PartPanel {
 
         addListener(jButton);
         this.add(jButton);
+
+        LOG.info("Components added to panel");
 
     }
 
@@ -60,13 +63,13 @@ public class FrekvPanel extends JPanel implements PartPanel {
                 ComponentsUtil.doAction(components);
             }
         });
+
+        LOG.info("Added listener");
     }
 
     @Override
     public JPanel getPanel() {
-        this.setBounds(850, 550, 400, 60);
-        this.setBorder(BorderFactory.createBevelBorder(0));
-        this.setBackground(Color.WHITE);
+        ComponentsUtil.setPanelSettings(this, 850, 550, 415, 60, true);
         return this;
     }
 

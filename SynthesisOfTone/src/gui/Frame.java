@@ -2,13 +2,15 @@ package gui;
 
 import gui.components.Components;
 
+import java.util.logging.Logger;
+
 import javax.swing.JFrame;
 
 public class Frame extends JFrame {
 
-    /**
-	 * 
-	 */
+    private final Logger LOG = Logger
+            .getLogger(this.getClass().getSimpleName());
+
     private static final long serialVersionUID = 1L;
 
     private final WindowDimension dimension;
@@ -28,5 +30,6 @@ public class Frame extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         components.init(this);
+        LOG.info("Init of Frame was succesful.");
     }
 }

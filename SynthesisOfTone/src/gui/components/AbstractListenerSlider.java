@@ -1,6 +1,4 @@
-package gui.components.panels;
-
-import gui.components.PartPanel;
+package gui.components;
 
 import javax.swing.JPanel;
 import javax.swing.JSlider;

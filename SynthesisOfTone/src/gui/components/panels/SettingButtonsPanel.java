@@ -2,9 +2,14 @@ package gui.components.panels;
 
 import gui.components.PartPanel;
 
+import java.util.logging.Logger;
+
 import javax.swing.JPanel;
 
 public class SettingButtonsPanel extends JPanel implements PartPanel {
+
+    private final Logger LOG = Logger
+            .getLogger(this.getClass().getSimpleName());
 
     private static final long serialVersionUID = 1L;
 

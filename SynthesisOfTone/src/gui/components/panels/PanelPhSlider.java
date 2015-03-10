@@ -48,9 +48,14 @@ public class PanelPhSlider extends AbstractListenerSlider {
                 if (frekv.get(0) == 0) {
                     ComponentsUtil.warning("Frekvency should not be null !!");
                 } else {
-                    phases.get(i).setText(
-                            String.format("%.4g%n",
-                                    ((double) sl.getValue() / 100) * Math.PI));
+
+                    String value = String.format("%.4g%n",
+                            ((double) sl.getValue() / 100) * Math.PI);
+
+                    if (value.charAt(1) == ',') {
+                        value = value.replace(',', '.');
+                    }
+                    phases.get(i).setText(value);
                     ComponentsUtil.doAction(components);
                 }
             }

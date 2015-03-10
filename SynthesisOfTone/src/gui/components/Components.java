@@ -5,7 +5,7 @@ import gui.components.panels.ControllButtonsPanel;
 import gui.components.panels.FrekvPanel;
 import gui.components.panels.GraphPanel;
 import gui.components.panels.SettingButtonsPanel;
-import gui.components.panels.Title;
+import gui.components.panels.TitleAndSetForNumberOfElements;
 
 import java.awt.Container;
 import java.util.ArrayList;
@@ -22,7 +22,7 @@ public class Components implements Elements {
 
     private final Container container;
 
-    private Title title;
+    private TitleAndSetForNumberOfElements title;
     private GraphPanel graphPanel;
     private FrekvPanel frekvPanel;
     private PlotGraph plotGraph;
@@ -40,7 +40,7 @@ public class Components implements Elements {
         NUMBER_OF_ELEMENTS.add(0, 7);
 
         this.frame = frame;
-        title = new Title(this);
+        title = new TitleAndSetForNumberOfElements(this);
         create(title);
 
         AmplPhasesSetUpFrame amplFrame = new AmplPhasesSetUpFrame(this);

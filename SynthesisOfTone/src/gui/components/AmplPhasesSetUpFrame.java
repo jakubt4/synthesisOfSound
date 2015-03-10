@@ -4,13 +4,14 @@ import gui.components.panels.PanelAmpTextField;
 import gui.components.panels.PanelAmplSlider;
 import gui.components.panels.PanelPhSlider;
 import gui.components.panels.PanelPhTextField;
+import gui.components.panels.PartFrame;
 
 import java.awt.Container;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class AmplPhasesSetUpFrame extends JFrame implements Elements {
+public class AmplPhasesSetUpFrame extends JFrame implements Elements, PartFrame {
 
     private static final long serialVersionUID = 1L;
 
@@ -35,7 +36,7 @@ public class AmplPhasesSetUpFrame extends JFrame implements Elements {
         this.setTitle("Amplitudes and phases");
 
         label = new JLabel("Amplitudes");
-        label.setBounds(10, 10, 80, 30);
+        label.setBounds(110, 10, 80, 30);
         container.add(label);
 
         panelAmpTextField = new PanelAmpTextField();
@@ -43,14 +44,19 @@ public class AmplPhasesSetUpFrame extends JFrame implements Elements {
         panelAmplSlider = new PanelAmplSlider(components);
         panelAmplSlider.createComponentsForPanel();
 
+        label = new JLabel("Phases");
+        label.setBounds(450, 10, 80, 30);
+        container.add(label);
+
         panelPhTextField = new PanelPhTextField();
         panelPhTextField.createComponentsForPanel();
         panelPhSlider = new PanelPhSlider(components);
         panelPhSlider.createComponentsForPanel();
+        amplPhasesSetUpFrames.add(this);
     }
 
     public void createComponentsForFrame() {
-        this.setSize(800, (panelAmplSlider.getPanel().getHeight()) + 10);
+        this.setSize(650, (panelAmplSlider.getPanel().getHeight()) + 10);
 
         container.add(panelAmplSlider.getPanel());
         container.add(panelAmpTextField.getPanel());
@@ -59,6 +65,7 @@ public class AmplPhasesSetUpFrame extends JFrame implements Elements {
         container.add(panelPhTextField.getPanel());
 
         this.setVisible(true);
+        this.setResizable(false);
 
         frames.add(this);
     }

@@ -7,6 +7,7 @@ import gui.components.PartPanel;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.logging.Logger;
@@ -16,7 +17,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class Title extends JPanel implements PartPanel {
+public class TitleAndSetForNumberOfElements extends JPanel implements
+        PartPanel, PartFrame {
 
     private final Logger LOG = Logger
             .getLogger(this.getClass().getSimpleName());
@@ -29,7 +31,7 @@ public class Title extends JPanel implements PartPanel {
 
     private final Components components;
 
-    public Title(Components components) {
+    public TitleAndSetForNumberOfElements(Components components) {
         this.components = components;
         this.setLayout(null);
     }
@@ -74,6 +76,7 @@ public class Title extends JPanel implements PartPanel {
 
             private void mouseClicked(ActionEvent e) {
                 if (frames.size() != 0) {
+                    Point location = amplPhasesSetUpFrames.get(0).getLocation();
                     for (int i = 0; i < frames.size(); i++) {
                         frames.get(i).dispose();
                     }
@@ -87,6 +90,7 @@ public class Title extends JPanel implements PartPanel {
                     amplFrame = new AmplPhasesSetUpFrame(components);
                     amplFrame.init();
                     amplFrame.createComponentsForFrame();
+                    amplFrame.setLocation(location);
 
                     ComponentsUtil.doAction(components);
                 }

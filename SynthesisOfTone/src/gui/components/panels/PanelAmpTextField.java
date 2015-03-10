@@ -34,7 +34,7 @@ public class PanelAmpTextField extends JPanel implements PartPanel {
 
     @Override
     public JPanel getPanel() {
-        ComponentsUtil.setPanelSettings(this, 245, 40, 35,
+        ComponentsUtil.setPanelSettings(this, 250, 40, 35,
                 (NUMBER_OF_ELEMENTS.get(0) * 32), false);
         return this;
     }

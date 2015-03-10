@@ -65,7 +65,7 @@ public class PanelAmplSlider extends AbstractListenerSlider {
     @Override
     public JPanel getPanel() {
         // ComponentsUtil.setPanelSettings(this, 850, 50, 250, 229, true);
-        ComponentsUtil.setPanelSettings(this, 10, 40, 235,
+        ComponentsUtil.setPanelSettings(this, 10, 40, 240,
                 (NUMBER_OF_ELEMENTS.get(0) * 34) + 28 + 40, false);
         return this;
     }

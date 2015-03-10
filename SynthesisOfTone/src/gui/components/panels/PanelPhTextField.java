@@ -34,7 +34,7 @@ public class PanelPhTextField extends JPanel implements PartPanel {
 
     @Override
     public JPanel getPanel() {
-        ComponentsUtil.setPanelSettings(this, 570, 40, 60,
+        ComponentsUtil.setPanelSettings(this, 610, 40, 60,
                 (NUMBER_OF_ELEMENTS.get(0) * 32), false);
         return this;
     }

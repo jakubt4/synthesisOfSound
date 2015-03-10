@@ -26,6 +26,8 @@ public class AmplPhasesSetUpFrame extends JFrame implements Elements, PartFrame 
 
     private JLabel label;
 
+    private LabelPanel labelPanel;
+
     public AmplPhasesSetUpFrame(Components components) {
         this.components = components;
         container = this.getContentPane();
@@ -39,6 +41,10 @@ public class AmplPhasesSetUpFrame extends JFrame implements Elements, PartFrame 
         label.setBounds(110, 10, 80, 30);
         container.add(label);
 
+        labelPanel = new LabelPanel(20);
+        labelPanel.createComponentsForPanel();
+        container.add(labelPanel.getPanel());
+
         panelAmpTextField = new PanelAmpTextField();
         panelAmpTextField.createComponentsForPanel();
         panelAmplSlider = new PanelAmplSlider(components);
@@ -48,6 +54,10 @@ public class AmplPhasesSetUpFrame extends JFrame implements Elements, PartFrame 
         label.setBounds(450, 10, 80, 30);
         container.add(label);
 
+        labelPanel = new LabelPanel(360);
+        labelPanel.createComponentsForPanel();
+        container.add(labelPanel.getPanel());
+
         panelPhTextField = new PanelPhTextField();
         panelPhTextField.createComponentsForPanel();
         panelPhSlider = new PanelPhSlider(components);
@@ -56,7 +66,7 @@ public class AmplPhasesSetUpFrame extends JFrame implements Elements, PartFrame 
     }
 
     public void createComponentsForFrame() {
-        this.setSize(650, (panelAmplSlider.getPanel().getHeight()) + 10);
+        this.setSize(690, (panelAmplSlider.getPanel().getHeight()) + 10);
 
         container.add(panelAmplSlider.getPanel());
         container.add(panelAmpTextField.getPanel());

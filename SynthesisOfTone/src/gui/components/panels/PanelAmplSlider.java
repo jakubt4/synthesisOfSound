@@ -8,7 +8,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.util.logging.Logger;
 
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
 
@@ -27,9 +26,6 @@ public class PanelAmplSlider extends AbstractListenerSlider {
     @Override
     public void createComponentsForPanel() {
         for (int i = 0; i < NUMBER_OF_ELEMENTS.get(0); i++) {
-            JLabel label = new JLabel((i + 1) + ".");
-            this.add(label);
-
             JSlider slider = new JSlider();
             ComponentsUtil.setupSl(slider, 10, 100);
             addListener(slider, i);
@@ -65,7 +61,7 @@ public class PanelAmplSlider extends AbstractListenerSlider {
     @Override
     public JPanel getPanel() {
         // ComponentsUtil.setPanelSettings(this, 850, 50, 250, 229, true);
-        ComponentsUtil.setPanelSettings(this, 10, 40, 240,
+        ComponentsUtil.setPanelSettings(this, 30, 40, 240,
                 (NUMBER_OF_ELEMENTS.get(0) * 34) + 28 + 40, false);
         return this;
     }

@@ -1,9 +1,7 @@
-package gui.components.panels;
-
-import gui.components.AmplPhasesSetUpFrame;
+package gui.components.frame;
 
 import java.util.ArrayList;
 
-public interface PartFrame {
+public interface FrameListener {
     ArrayList<AmplPhasesSetUpFrame> amplPhasesSetUpFrames = new ArrayList<>();
 }

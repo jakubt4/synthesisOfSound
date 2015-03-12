@@ -1,14 +1,14 @@
 package gui.components.panels;
 
 import gui.components.ComponentsUtil;
-import gui.components.PartPanel;
+import gui.components.PanelIntereface;
 
 import javax.swing.JPanel;
 
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 
-public class GraphPanel extends ChartPanel implements PartPanel {
+public class GraphPanel extends ChartPanel implements PanelIntereface {
 
     private static final long serialVersionUID = 1L;
 

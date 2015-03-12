@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
-public interface Elements {
+public interface ElementsListener {
     ArrayList<JTextField> ampls = new ArrayList<>();
     ArrayList<JTextField> phases = new ArrayList<>();
     ArrayList<Integer> frekv = new ArrayList<>();

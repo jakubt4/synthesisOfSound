@@ -2,7 +2,7 @@ package gui.components.panels;
 
 import gui.components.Components;
 import gui.components.ComponentsUtil;
-import gui.components.PartPanel;
+import gui.components.PanelIntereface;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -14,7 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class FrekvPanel extends JPanel implements PartPanel {
+public class FrekvPanel extends JPanel implements PanelIntereface {
 
     private final Logger LOG = Logger
             .getLogger(this.getClass().getSimpleName());

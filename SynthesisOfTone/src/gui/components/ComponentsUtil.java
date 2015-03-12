@@ -10,7 +10,7 @@ import javax.swing.JSlider;
 
 import plotGraph.PlotGraph;
 
-public class ComponentsUtil implements Elements {
+public class ComponentsUtil implements ElementsListener {
 
     private static PlotGraph plotGraph;
     private static GraphPanel graphPanel;

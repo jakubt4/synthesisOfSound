@@ -2,7 +2,7 @@ package gui.components;
 
 import javax.swing.JPanel;
 
-public interface PartPanel extends Elements {
+public interface PanelIntereface extends ElementsListener {
 
     public void createComponentsForPanel();
 

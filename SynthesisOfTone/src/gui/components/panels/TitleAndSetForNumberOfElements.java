@@ -1,9 +1,10 @@
 package gui.components.panels;
 
-import gui.components.AmplPhasesSetUpFrame;
 import gui.components.Components;
 import gui.components.ComponentsUtil;
-import gui.components.PartPanel;
+import gui.components.PanelIntereface;
+import gui.components.frame.AmplPhasesSetUpFrame;
+import gui.components.frame.FrameListener;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -18,7 +19,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class TitleAndSetForNumberOfElements extends JPanel implements
-        PartPanel, PartFrame {
+        PanelIntereface, FrameListener {
 
     private final Logger LOG = Logger
             .getLogger(this.getClass().getSimpleName());

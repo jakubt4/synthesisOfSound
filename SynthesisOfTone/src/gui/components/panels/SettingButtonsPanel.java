@@ -1,12 +1,12 @@
 package gui.components.panels;
 
-import gui.components.PartPanel;
+import gui.components.PanelIntereface;
 
 import java.util.logging.Logger;
 
 import javax.swing.JPanel;
 
-public class SettingButtonsPanel extends JPanel implements PartPanel {
+public class SettingButtonsPanel extends JPanel implements PanelIntereface {
 
     private final Logger LOG = Logger
             .getLogger(this.getClass().getSimpleName());

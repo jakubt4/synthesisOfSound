@@ -1,6 +1,7 @@
 package gui.components;
 
 import gui.Frame;
+import gui.components.frame.AmplPhasesSetUpFrame;
 import gui.components.panels.ControllButtonsPanel;
 import gui.components.panels.FrekvPanel;
 import gui.components.panels.GraphPanel;
@@ -15,7 +16,7 @@ import javax.swing.JTextField;
 
 import plotGraph.PlotGraph;
 
-public class Components implements Elements {
+public class Components implements ElementsListener {
 
     private final Logger LOG = Logger
             .getLogger(this.getClass().getSimpleName());
@@ -80,7 +81,7 @@ public class Components implements Elements {
         return doubles;
     }
 
-    public <T extends PartPanel> void create(T panel) {
+    public <T extends PanelIntereface> void create(T panel) {
         panel.createComponentsForPanel();
         try {
             if (container.add(panel.getPanel()) != null) {

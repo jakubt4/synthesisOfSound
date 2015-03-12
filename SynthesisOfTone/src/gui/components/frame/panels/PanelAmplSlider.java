@@ -1,8 +1,8 @@
-package gui.components.panels;
+package gui.components.frame.panels;
 
-import gui.components.AbstractListenerSlider;
 import gui.components.Components;
 import gui.components.ComponentsUtil;
+import gui.components.frame.PanelSliderInterface;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
 
-public class PanelAmplSlider extends AbstractListenerSlider {
+public class PanelAmplSlider extends PanelSliderInterface {
 
     private final Logger LOG = Logger
             .getLogger(this.getClass().getSimpleName());

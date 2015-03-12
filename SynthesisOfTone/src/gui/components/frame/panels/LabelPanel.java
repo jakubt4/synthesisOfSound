@@ -1,11 +1,14 @@
-package gui.components;
+package gui.components.frame.panels;
+
+import gui.components.ComponentsUtil;
+import gui.components.PanelIntereface;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class LabelPanel extends JPanel implements PartPanel {
+public class LabelPanel extends JPanel implements PanelIntereface {
 
     private static final long serialVersionUID = 1L;
     private JLabel label;

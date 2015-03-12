@@ -1,17 +1,19 @@
-package gui.components;
+package gui.components.frame;
 
-import gui.components.panels.PanelAmpTextField;
-import gui.components.panels.PanelAmplSlider;
-import gui.components.panels.PanelPhSlider;
-import gui.components.panels.PanelPhTextField;
-import gui.components.panels.PartFrame;
+import gui.components.Components;
+import gui.components.ElementsListener;
+import gui.components.frame.panels.LabelPanel;
+import gui.components.frame.panels.PanelAmpTextField;
+import gui.components.frame.panels.PanelAmplSlider;
+import gui.components.frame.panels.PanelPhSlider;
+import gui.components.frame.panels.PanelPhTextField;
 
 import java.awt.Container;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class AmplPhasesSetUpFrame extends JFrame implements Elements, PartFrame {
+public class AmplPhasesSetUpFrame extends JFrame implements ElementsListener, FrameListener {
 
     private static final long serialVersionUID = 1L;
 

@@ -1,7 +1,7 @@
-package gui.components.panels;
+package gui.components.frame.panels;
 
 import gui.components.ComponentsUtil;
-import gui.components.PartPanel;
+import gui.components.PanelIntereface;
 
 import java.util.logging.Logger;
 
@@ -9,14 +9,14 @@ import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class PanelPhTextField extends JPanel implements PartPanel {
+public class PanelAmpTextField extends JPanel implements PanelIntereface {
 
     private final Logger LOG = Logger
             .getLogger(this.getClass().getSimpleName());
 
     private static final long serialVersionUID = 1L;
 
-    public PanelPhTextField() {
+    public PanelAmpTextField() {
         this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
     }
 
@@ -28,13 +28,13 @@ public class PanelPhTextField extends JPanel implements PartPanel {
             tf.setEditable(false);
             this.add(tf);
             LOG.info("Added " + tf.getClass().getSimpleName() + " to panel.");
-            phases.add(tf);
+            ampls.add(tf);
         }
     }
 
     @Override
     public JPanel getPanel() {
-        ComponentsUtil.setPanelSettings(this, 610, 40, 60,
+        ComponentsUtil.setPanelSettings(this, 270, 40, 35,
                 (NUMBER_OF_ELEMENTS.get(0) * 32), false);
         return this;
     }

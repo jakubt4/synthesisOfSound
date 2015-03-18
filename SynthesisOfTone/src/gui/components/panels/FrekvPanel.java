@@ -40,6 +40,7 @@ public class FrekvPanel extends JPanel implements PanelIntereface {
         jTextField.setBounds(110, 11, 60, 30);
         jTextField.setFont(font);
         this.add(jTextField);
+        frekvTF.add(jTextField);
 
         JButton jButton = new JButton("OK");
         jButton.setBounds(215, 10, 70, 30);
@@ -69,7 +70,6 @@ public class FrekvPanel extends JPanel implements PanelIntereface {
 
     @Override
     public JPanel getPanel() {
-        // ComponentsUtil.setPanelSettings(this, 850, 550, 415, 60, true);
         ComponentsUtil.setPanelSettings(this, 60, 520, 300, 50, true);
         return this;
     }

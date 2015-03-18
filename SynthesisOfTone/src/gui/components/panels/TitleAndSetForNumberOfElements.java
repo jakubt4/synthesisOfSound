@@ -82,19 +82,33 @@ public class TitleAndSetForNumberOfElements extends JPanel implements
                         frames.get(i).dispose();
                     }
 
-                    ampls.removeAll(ampls);
-                    phases.removeAll(phases);
+                    removeAllElements();
 
                     NUMBER_OF_ELEMENTS.add(0,
                             Integer.parseInt(jTextField.getText()));
 
-                    amplFrame = new AmplPhasesSetUpFrame(components);
-                    amplFrame.init();
-                    amplFrame.createComponentsForFrame();
-                    amplFrame.setLocation(location);
+                    newInitOfAmplFrame(location);
 
                     ComponentsUtil.doAction(components);
                 }
+            }
+
+            private void newInitOfAmplFrame(Point location) {
+                amplFrame = new AmplPhasesSetUpFrame(components);
+                amplFrame.init();
+                amplFrame.createComponentsForFrame();
+                amplFrame.setLocation(location);
+
+            }
+
+            private void removeAllElements() {
+                ampls.removeAll(ampls);
+                phases.removeAll(phases);
+                amplsSliders.removeAll(amplsSliders);
+                phasesSliders.removeAll(phasesSliders);
+
+                frekvTF.get(0).setText("0");
+                frekv.set(0, 0);
             }
         });
 

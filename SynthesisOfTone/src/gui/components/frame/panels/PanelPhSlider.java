@@ -30,6 +30,7 @@ public class PanelPhSlider extends PanelSliderInterface {
             ComponentsUtil.setupSl(slider, 20, 200);
             addListener(slider, i);
             this.add(slider);
+            phasesSliders.add(slider);
             LOG.info("Added " + slider.getClass().getSimpleName()
                     + " to panel.");
         }

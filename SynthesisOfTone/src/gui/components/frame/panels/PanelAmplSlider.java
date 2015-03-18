@@ -30,6 +30,7 @@ public class PanelAmplSlider extends PanelSliderInterface {
             ComponentsUtil.setupSl(slider, 10, 100);
             addListener(slider, i);
             this.add(slider);
+            amplsSliders.add(slider);
             LOG.info("Added " + slider.getClass().getSimpleName()
                     + " to panel.");
         }

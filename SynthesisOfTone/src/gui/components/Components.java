@@ -59,7 +59,7 @@ public class Components implements ElementsListener {
         graphPanel = new GraphPanel(plotGraph.createChart());
         create(graphPanel);
 
-        settingButtonsPanel = new SettingButtonsPanel();
+        settingButtonsPanel = new SettingButtonsPanel(this);
         create(settingButtonsPanel);
 
         controllPanel = new ControllButtonsPanel();
@@ -67,8 +67,6 @@ public class Components implements ElementsListener {
 
         LOG.info("Init of " + this.getClass().getSimpleName()
                 + " was succesful.");
-
-        // System.out.println(sliderTest.getSize().getHeight());
     }
 
     public double[] getDoubles(ArrayList<JTextField> values) {

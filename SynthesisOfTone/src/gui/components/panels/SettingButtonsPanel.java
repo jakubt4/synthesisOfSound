@@ -7,6 +7,7 @@ import gui.components.TypesOfActions;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
 import java.util.logging.Logger;
 
 import javax.swing.JButton;
@@ -29,16 +30,21 @@ public class SettingButtonsPanel extends JPanel implements PanelIntereface {
 
     @Override
     public void createComponentsForPanel() {
-        JButton clean = new JButton("Clean");
-        clean.setBounds(180, 10, 100, 30);
-        addListener(clean);
-        this.add(clean);
-
         JButton toneA = new JButton("Tone A");
         toneA.setBounds(20, 10, 100, 30);
         addListener(toneA);
         this.add(toneA);
 
+        JButton random = new JButton("Random");
+        random.setBounds(140, 10, 100, 30);
+        addListener(random);
+        this.add(random);
+
+        JButton clean = new JButton("Clean");
+        clean.setBounds(260, 10, 100, 30);
+        addListener(clean);
+        this.add(clean);
+        
         LOG.info("Buttons added to panel.");
     }
 
@@ -52,6 +58,12 @@ public class SettingButtonsPanel extends JPanel implements PanelIntereface {
             case "Tone A":
                 typesOfActions = TypesOfActions.TONE_A;
                 callAction(button, typesOfActions);
+                break;
+            case "Random":
+                typesOfActions = TypesOfActions.RANDOM;
+                callAction(button, typesOfActions);
+                break;
+            default:
                 break;
         }
     }
@@ -73,7 +85,10 @@ public class SettingButtonsPanel extends JPanel implements PanelIntereface {
                         frekv.set(0, 440);
                         frekvTF.get(0).setText("440");
                         break;
-
+                    case RANDOM:
+                        frekv.set(0, generate(10000));
+                        setAllElementsRandom();
+                        frekvTF.get(0).setText(frekv.get(0).toString());
                     default:
                         break;
                 }
@@ -81,6 +96,15 @@ public class SettingButtonsPanel extends JPanel implements PanelIntereface {
                 ComponentsUtil.doAction(components);
             }
         });
+    }
+
+    protected void setAllElementsRandom() {
+        
+    }
+
+    protected Integer generate(int up) {
+        Random rand = new Random();
+        return rand.nextInt(up) + 1;
     }
 
     protected void setElementsForToneA() {
@@ -103,7 +127,7 @@ public class SettingButtonsPanel extends JPanel implements PanelIntereface {
 
     @Override
     public JPanel getPanel() {
-        ComponentsUtil.setPanelSettings(this, 60, 600, 300, 50, true);
+        ComponentsUtil.setPanelSettings(this, 60, 600, 382, 50, true);
         return this;
     }
 }

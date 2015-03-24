@@ -99,7 +99,14 @@ public class SettingButtonsPanel extends JPanel implements PanelIntereface {
     }
 
     protected void setAllElementsRandom() {
-        
+        for(int i = 0; i < phases.size(); i++){
+            double amplitude = (double)(generate(100))/100;
+            double phase = (double)(generate(628))/100;
+            phases.get(i).setText(String.valueOf(phase));
+            ampls.get(i).setText(String.valueOf(amplitude));
+            phasesSliders.get(i).setValue((int) (phase*100));
+            amplsSliders.get(i).setValue((int) (amplitude*100));
+        }
     }
 
     protected Integer generate(int up) {

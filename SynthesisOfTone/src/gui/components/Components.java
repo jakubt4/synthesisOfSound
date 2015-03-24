@@ -62,7 +62,7 @@ public class Components implements ElementsListener {
         settingButtonsPanel = new SettingButtonsPanel(this);
         create(settingButtonsPanel);
 
-        controllPanel = new ControllButtonsPanel();
+        controllPanel = new ControllButtonsPanel(this);
         create(controllPanel);
 
         LOG.info("Init of " + this.getClass().getSimpleName()

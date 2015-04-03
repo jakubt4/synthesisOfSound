@@ -1,7 +1,7 @@
 package gui.components.frame;
 
 import gui.components.Components;
-import gui.components.ElementsListener;
+import gui.components.ElementsChangesListener;
 import gui.components.frame.panels.LabelPanel;
 import gui.components.frame.panels.PanelAmpTextField;
 import gui.components.frame.panels.PanelAmplSlider;
@@ -13,7 +13,7 @@ import java.awt.Container;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class AmplPhasesSetUpFrame extends JFrame implements ElementsListener, FrameListener {
+public class AmplPhasesSetUpFrame extends JFrame implements ElementsChangesListener, FrameListener {
 
     private static final long serialVersionUID = 1L;
 
@@ -68,7 +68,7 @@ public class AmplPhasesSetUpFrame extends JFrame implements ElementsListener, Fr
     }
 
     public void createComponentsForFrame() {
-        this.setSize(690, (panelAmplSlider.getPanel().getHeight()) + 10);
+        this.setSize(700, (panelAmplSlider.getPanel().getHeight()) + 10);
 
         container.add(panelAmplSlider.getPanel());
         container.add(panelAmpTextField.getPanel());

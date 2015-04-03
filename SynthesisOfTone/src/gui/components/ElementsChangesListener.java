@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JSlider;
 import javax.swing.JTextField;
 
-public interface ElementsListener {
+public interface ElementsChangesListener {
     ArrayList<JTextField> ampls = new ArrayList<>();
     ArrayList<JTextField> phases = new ArrayList<>();
     ArrayList<Integer> frekv = new ArrayList<>();

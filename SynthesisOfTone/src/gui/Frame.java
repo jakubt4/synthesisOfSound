@@ -25,7 +25,7 @@ public class Frame extends JFrame {
     public void init() {
         this.setTitle("Synthesis Of Tone");
         this.setBounds(dimension.getX(), dimension.getY(),
-                dimension.getWidth(), dimension.getHeight());
+                920, 710);
         this.setResizable(this.resizableOfWindow);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 

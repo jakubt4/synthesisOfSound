@@ -35,7 +35,7 @@ public class Components implements ElementsChangesListener {
         this.container = container;
         container.setLayout(null);
     }
-
+    
     public void init(Frame frame) {
 
         NUMBER_OF_ELEMENTS.add(0, 7);

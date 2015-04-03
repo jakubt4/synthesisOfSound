@@ -4,6 +4,8 @@ import gui.components.Components;
 import gui.components.ComponentsUtil;
 import gui.components.frame.PanelSliderInterface;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.util.logging.Logger;
@@ -55,6 +57,32 @@ public class PanelAmplSlider extends PanelSliderInterface {
                 }
             }
 
+        });
+        
+        sl.addKeyListener(new KeyListener() {
+            
+            @Override
+            public void keyTyped(KeyEvent e) {
+                setAction(e);
+            }
+            
+            @Override
+            public void keyReleased(KeyEvent e) {
+                setAction(e);
+            }
+            
+            @Override
+            public void keyPressed(KeyEvent e) {
+                setAction(e);
+            }
+
+            private void setAction(KeyEvent e) {
+                if((e.getKeyCode() == KeyEvent.VK_LEFT || e.getKeyCode() == KeyEvent.VK_RIGHT) && sl.getValue() <= 100){
+                    ampls.get(i).setText(
+                            String.valueOf((double) sl.getValue() / 100));
+                    ComponentsUtil.doAction(components);
+                }
+            }
         });
         LOG.info("Added listener");
     }

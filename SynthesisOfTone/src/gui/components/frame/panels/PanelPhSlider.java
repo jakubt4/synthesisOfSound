@@ -4,6 +4,8 @@ import gui.components.Components;
 import gui.components.ComponentsUtil;
 import gui.components.frame.PanelSliderInterface;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.util.logging.Logger;
@@ -56,6 +58,33 @@ public class PanelPhSlider extends PanelSliderInterface {
                     if (value.charAt(1) == ',') {
                         value = value.replace(',', '.');
                     }
+                    phases.get(i).setText(value);
+                    ComponentsUtil.doAction(components);
+                }
+            }
+        });
+        
+        sl.addKeyListener(new KeyListener() {
+            
+            @Override
+            public void keyTyped(KeyEvent e) {
+                setAction(e);
+            }
+            
+            @Override
+            public void keyReleased(KeyEvent e) {
+                setAction(e);
+            }
+            
+            @Override
+            public void keyPressed(KeyEvent e) {
+                setAction(e);
+            }
+
+            private void setAction(KeyEvent e) {
+                if((e.getKeyCode() == KeyEvent.VK_LEFT || e.getKeyCode() == KeyEvent.VK_RIGHT) && sl.getValue() <= 200){
+                    String value = String.format("%.4g%n",
+                            ((double) sl.getValue() / 100) * Math.PI);
                     phases.get(i).setText(value);
                     ComponentsUtil.doAction(components);
                 }

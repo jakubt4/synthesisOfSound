@@ -13,7 +13,6 @@ import javax.swing.JTextField;
 public class PlaySound extends AbstractListenerElements{
     private double[] amplitudy;
     private double[] fazy;
-    private final double vol = 0.99;
 
     public float SAMPLE_RATE = 150000;  /*440*2^6*/
     private int hzs;
@@ -26,13 +25,7 @@ public class PlaySound extends AbstractListenerElements{
                                 buf[i] += (byte)((127.0 * amplitudy[j] * Math.sin(i / (SAMPLE_RATE / hzs) * 2.0 * Math.PI*j  + fazy[j])));
                             }
         }
-
-        // shape the front and back 10ms of the wave form
-//        for (int i=0; i < SAMPLE_RATE / 100.0 && i < buf.length / 2; i++) {
-//            buf[i] = (byte)(buf[i] * i / (SAMPLE_RATE / 100.0));
-//            buf[buf.length-1-i] = (byte)(buf[buf.length-1-i] * i / (SAMPLE_RATE / 100.0));
-//        }
-
+        
         AudioFormat af = new AudioFormat(SAMPLE_RATE, 8, 2, true, false);
         SourceDataLine sdl = AudioSystem.getSourceDataLine(af);
         sdl.open(af);

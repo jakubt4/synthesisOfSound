@@ -9,9 +9,13 @@ import gui.components.frame.panels.PanelPhSlider;
 import gui.components.frame.panels.PanelPhTextField;
 
 import java.awt.Container;
+import java.awt.Point;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JRootPane;
 
 public class AmplPhasesSetUpFrame extends JFrame implements ElementsChangesListener, FrameListener {
 
@@ -27,6 +31,8 @@ public class AmplPhasesSetUpFrame extends JFrame implements ElementsChangesListe
     private PanelPhTextField panelPhTextField;
 
     private JLabel label;
+    
+    private Point startLoc = null;
 
     private LabelPanel labelPanel;
 
@@ -76,6 +82,7 @@ public class AmplPhasesSetUpFrame extends JFrame implements ElementsChangesListe
         container.add(panelPhSlider.getPanel());
         container.add(panelPhTextField.getPanel());
 
+        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         this.setVisible(true);
         this.setResizable(false);
 

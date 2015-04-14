@@ -44,7 +44,7 @@ public class PlotGraph {
             sinus = 0;
             for (int i = 0; i < ampls.length; i++) {
                 sinus += (ampls[i] * Math.sin((x / (180 / (i + 1))) * Math.PI
-                        + (phases[i] * 57.32)));
+                        + (phases[i])));
             }
             y += val;
             sinSeries.add(y, sinus);

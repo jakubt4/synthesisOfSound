@@ -72,6 +72,7 @@ public class ControllButtonsPanel extends JPanel implements PanelIntereface {
                         stop.setEnabled(true);
                         listenerOnStop = true;
                         thread.start();
+                        Thread.sleep(1050);
 
                         if(!listenerOnStop){
                             thread.join();
@@ -98,9 +99,8 @@ public class ControllButtonsPanel extends JPanel implements PanelIntereface {
                 while(listenerOnStop){
                     PlaySound playSound = new PlaySound();
                     playSound.play();
-                    Thread.sleep(1000);
                 }
-            } catch (LineUnavailableException | InterruptedException e) {
+            } catch (LineUnavailableException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }

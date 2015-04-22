@@ -76,6 +76,18 @@ public class TitleAndSetForNumberOfElements extends JPanel implements
             }
 
             private void mouseClicked(ActionEvent e) {
+                try{
+                    if(Integer.parseInt(jTextField.getText()) > 0){
+                        repaintFrame();
+                    } else {
+                        ComponentsUtil.warning("Number of elements has to be larger than 0.");
+                    }
+                } catch (NumberFormatException en){
+                    ComponentsUtil.warning(en.toString().replace("java.lang.", "").replace("string", "") + "\n" + "The number has to be positive integer.");
+                }
+            }
+            
+            private void repaintFrame(){
                 if (frames.size() != 0) {
                     Point location = amplPhasesSetUpFrames.get(0).getLocation();
                     for (int i = 0; i < frames.size(); i++) {

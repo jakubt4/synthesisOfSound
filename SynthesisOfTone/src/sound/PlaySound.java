@@ -20,9 +20,9 @@ public class PlaySound extends AbstractListenerElements{
     public void sound(int msecs) throws LineUnavailableException {
         byte[] buf = new byte[(int)SAMPLE_RATE * msecs / 1000];
         for (int i=0; i < buf.length; i++) {
-                            buf[i] = (byte)((Math.sin(i / (SAMPLE_RATE / hzs) * 2.0 * Math.PI) * 127.0 * amplitudy[0]) + fazy[0]);
-                            for(int j = 1; j < amplitudy.length; j++){
-                                buf[i] += (byte)((127.0 * amplitudy[j] * Math.sin(i / (SAMPLE_RATE / hzs) * 2.0 * Math.PI*j  + fazy[j])));
+                            buf[i] = (byte)((Math.sin(i / (SAMPLE_RATE / hzs) * 2.0 * Math.PI) * 127.0 * amplitudy[0]) + fazy[0]*57.29);
+                            for(int j = 0; j < amplitudy.length; j++){
+                                buf[i] += (byte)((127.0 * amplitudy[j] * Math.sin(i / (SAMPLE_RATE / hzs) * 2.0 * Math.PI*j  + fazy[j]*57.29)));
                             }
         }
         

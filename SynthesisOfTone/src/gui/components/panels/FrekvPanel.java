@@ -61,7 +61,15 @@ public class FrekvPanel extends JPanel implements PanelIntereface {
             }
 
             private void mouseClicked(ActionEvent e) {
-                ComponentsUtil.doAction(components);
+                try{
+                    if(Integer.parseInt(jTextField.getText()) > 0){
+                        ComponentsUtil.doAction(components);
+                    } else {
+                        ComponentsUtil.warning("Frekvency has to be larger than 0.");
+                    }
+                }catch (NumberFormatException en){
+                    ComponentsUtil.warning(en.toString().replace("java.lang.", "").replace("string", "") + "\n" + "The number has to be positive integer.");
+                }
             }
         });
 

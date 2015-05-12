@@ -49,12 +49,4 @@ public class WindowDimension {
     public int getY() {
         return Y;
     }
-
-    public int getWidth() {
-        return WIDTH - (HEIGHT / 2);
-    }
-
-    public int getHeight() {
-        return HEIGHT;
-    }
 }

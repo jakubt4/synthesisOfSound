@@ -25,14 +25,13 @@ public class PlaySound extends AbstractListenerElements {
             buf[i] = 0;
 
             for (int j = 0; j < amplitudy.length; j++) {
-                buf[i] += (byte) ((127.0 * amplitudy[j] * Math.sin(i
-                        / (SAMPLE_RATE / hzs) * 2.0 * Math.PI * (j + 1)
+                buf[i] += (byte) ((127.0 * amplitudy[j] * Math.sin(i / (SAMPLE_RATE / hzs) * 2.0 * Math.PI * (j + 1)
                         + (fazy[j] * 57.29))));
             }
         }
 
         /*
-         * TEST
+         * TESTED
          */
         // double value = 0;
         // double sinus = 0;

@@ -72,7 +72,6 @@ public class ControllButtonsPanel extends JPanel implements PanelIntereface {
                         stop.setEnabled(true);
                         listenerOnStop = true;
                         thread.start();
-                        //Thread.sleep(1050);
                         break;
                     case "Stop":
                         start.setEnabled(true);

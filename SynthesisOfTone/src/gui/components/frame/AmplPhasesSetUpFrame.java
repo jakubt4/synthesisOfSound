@@ -3,6 +3,7 @@ package gui.components.frame;
 import gui.components.Components;
 import gui.components.ComponentsUtil;
 import gui.components.ElementsChangesListener;
+import gui.components.frame.core.CoreOfFrame;
 import gui.components.frame.panels.LabelPanel;
 import gui.components.frame.panels.PanelAmpTextField;
 import gui.components.frame.panels.PanelAmplSlider;
@@ -21,7 +22,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSlider;
-import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
 
 public class AmplPhasesSetUpFrame extends JFrame implements ElementsChangesListener, FrameListener {
@@ -44,6 +44,7 @@ public class AmplPhasesSetUpFrame extends JFrame implements ElementsChangesListe
     private LabelPanel labelPanel;
 
     private final JPanel mainPanel;
+    private final CoreOfFrame coreOfFrame;
 
     public AmplPhasesSetUpFrame(Components components) {
         this.components = components;
@@ -51,10 +52,12 @@ public class AmplPhasesSetUpFrame extends JFrame implements ElementsChangesListe
         // container.setLayout(null);
         mainPanel = new JPanel();
         mainPanel.setLayout(null);
+        coreOfFrame = new CoreOfFrame(mainPanel);l
     }
 
     public void init() {
         this.setTitle("Amplitudes and phases");
+        coreOfFrame.init();
 
         // label = new JLabel("Amplitudes");
         // label.setBounds(110, 10, 80, 30);
@@ -82,74 +85,7 @@ public class AmplPhasesSetUpFrame extends JFrame implements ElementsChangesListe
         // panelPhSlider = new PanelPhSlider(components);
         // panelPhSlider.createComponentsForPanel();
         // amplPhasesSetUpFrames.add(this);
-        JTextField tf;
-        JSlider slider;
-        JPanel panel;
-        JLabel label;
-        mainPanel.setPreferredSize(new Dimension(650, (NUMBER_OF_ELEMENTS.get(0) + 1) * 37));
         
-        panel = new JPanel(null);
-        panel.setSize(650, 37);
-        label = new JLabel("Amplitudes");
-        label.setBounds(50, 1, 200, 35);
-        panel.add(label);
-
-        label = new JLabel("Phases");
-        label.setBounds(350, 1, 200, 35);
-        panel.add(label);
-
-        panel.setBounds(0, 0, 650, 37);
-        mainPanel.add(panel);
-        
-        for (int i = 0; i < NUMBER_OF_ELEMENTS.get(0); i++) {
-            panel = new JPanel(null);
-            panel.setSize(650, 37);
-
-            // label
-            label = new JLabel(String.valueOf(i + 1) + ".");
-            label.setBounds(15, 1, 30, 20);
-            panel.add(label);
-
-            // slider ampl
-            slider = new JSlider();
-            ComponentsUtil.setupSl(slider, 10, 100);
-            slider.setBounds(50, 1, 200, 35);
-            addListenerAmpl(slider, i);
-            panel.add(slider);
-            amplsSliders.add(slider);
-
-            // tf ampl
-            tf = new JTextField();
-            tf.setText("0.0");
-            tf.setEditable(false);
-            tf.setBounds(255, 1, 50, 25);
-            panel.add(tf);
-            ampls.add(tf);
-
-            label = new JLabel(String.valueOf(i + 1) + ".");
-            label.setBounds(350, 1, 30, 20);
-            panel.add(label);
-
-            // slider ph
-            slider = new JSlider();
-            ComponentsUtil.setupSl(slider, 20, 200);
-            slider.setBounds(385, 1, 200, 35);
-            addListener(slider, i);
-            panel.add(slider);
-            phasesSliders.add(slider);
-
-            // tf ph
-            tf = new JTextField();
-            tf.setText("0.0");
-            tf.setEditable(false);
-            tf.setBounds(590, 1, 50, 25);
-            panel.add(tf);
-            phases.add(tf);
-
-            panel.setBounds(0, (i + 1) * 37, 700, 37);
-
-            mainPanel.add(panel);
-        }
     }
 
     protected void addListener(final JSlider sl, final int i) {

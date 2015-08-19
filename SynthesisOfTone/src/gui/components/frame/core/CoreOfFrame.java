@@ -1,5 +1,6 @@
 package gui.components.frame.core;
 
+import gui.components.Components;
 import gui.components.ComponentsUtil;
 
 import java.awt.Dimension;
@@ -9,12 +10,14 @@ import javax.swing.JPanel;
 import javax.swing.JSlider;
 import javax.swing.JTextField;
 
-public class CoreOfFrame {
+public class CoreOfFrame extends Listener {
 
     private final JPanel mainPanel;
+    private final Components components;
     
-    public CoreOfFrame(JPanel mainPanel) {
+    public CoreOfFrame(JPanel mainPanel, Components components) {
         this.mainPanel = mainPanel;
+        this.components = components;
     }
 
     public void init() {
@@ -50,7 +53,7 @@ public class CoreOfFrame {
             slider = new JSlider();
             ComponentsUtil.setupSl(slider, 10, 100);
             slider.setBounds(50, 1, 200, 35);
-            addListenerAmpl(slider, i);
+            addListenerAmpl(slider, i, components);
             panel.add(slider);
             amplsSliders.add(slider);
 
@@ -70,7 +73,7 @@ public class CoreOfFrame {
             slider = new JSlider();
             ComponentsUtil.setupSl(slider, 20, 200);
             slider.setBounds(385, 1, 200, 35);
-            addListener(slider, i);
+            addListener(slider, i, components);
             panel.add(slider);
             phasesSliders.add(slider);
 

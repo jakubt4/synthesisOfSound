@@ -19,36 +19,37 @@ public class SettingButtonsPanel extends JPanel implements PanelIntereface {
             .getLogger(this.getClass().getSimpleName());
 
     private static final long serialVersionUID = 1L;
+    protected final int RANDOM_FREKV = 1000;
+
 
     private final Components components;
 
-    public SettingButtonsPanel(Components components) {
+    public SettingButtonsPanel(final Components components) {
         this.components = components;
         this.setLayout(null);
-
     }
 
     @Override
     public void createComponentsForPanel() {
-        JButton toneA = new JButton("Tone A");
+        final JButton toneA = new JButton("Tone A");
         toneA.setBounds(20, 10, 100, 30);
         addListener(toneA);
         this.add(toneA);
 
-        JButton random = new JButton("Random");
+        final JButton random = new JButton("Random");
         random.setBounds(140, 10, 100, 30);
         addListener(random);
         this.add(random);
 
-        JButton clean = new JButton("Clean");
+        final JButton clean = new JButton("Clean");
         clean.setBounds(260, 10, 100, 30);
         addListener(clean);
         this.add(clean);
-        
+
         LOG.info("Buttons added to panel.");
     }
 
-    private void addListener(JButton button) {
+    private void addListener(final JButton button) {
         TypesOfActions typesOfActions;
         switch (button.getText()) {
             case "Clean":
@@ -68,11 +69,11 @@ public class SettingButtonsPanel extends JPanel implements PanelIntereface {
         }
     }
 
-    private void callAction(JButton button, final TypesOfActions typesOfActions) {
+    private void callAction(final JButton button, final TypesOfActions typesOfActions) {
         button.addActionListener(new ActionListener() {
 
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(final ActionEvent e) {
 
                 switch (typesOfActions) {
                     case CLEAN:
@@ -86,7 +87,9 @@ public class SettingButtonsPanel extends JPanel implements PanelIntereface {
                         frekvTF.get(0).setText("440");
                         break;
                     case RANDOM:
-                        frekv.set(0, generate(10000));
+                        int FREKVENCY = generate(RANDOM_FREKV);
+                        FREKVENCY = checkFrekv(FREKVENCY);
+                        frekv.set(0, FREKVENCY);
                         setAllElementsRandom();
                         frekvTF.get(0).setText(frekv.get(0).toString());
                     default:
@@ -98,10 +101,17 @@ public class SettingButtonsPanel extends JPanel implements PanelIntereface {
         });
     }
 
+    protected int checkFrekv(int frekv) {
+        if(frekv < 100){
+            frekv += 100;
+        }
+        return frekv;
+    }
+
     protected void setAllElementsRandom() {
         for(int i = 0; i < phases.size(); i++){
-            double amplitude = (double)(generate(100))/100;
-            double phase = (double) (generate(200)) / 100;
+            final double amplitude = (double)(generate(100))/100;
+            final double phase = (double) (generate(200)) / 100;
 
             String value = String.format("%.4g%n", phase * Math.PI);
 
@@ -116,8 +126,8 @@ public class SettingButtonsPanel extends JPanel implements PanelIntereface {
         }
     }
 
-    protected Integer generate(int up) {
-        Random rand = new Random();
+    protected Integer generate(final int up) {
+        final Random rand = new Random();
         return rand.nextInt(up) + 1;
     }
 
@@ -129,7 +139,7 @@ public class SettingButtonsPanel extends JPanel implements PanelIntereface {
         setAllElementsOnNull(1);
     }
 
-    protected void setAllElementsOnNull(int start) {
+    protected void setAllElementsOnNull(final int start) {
         for (int i = start; i < phases.size(); i++) {
             phases.get(i).setText("0.0");
             ampls.get(i).setText("0.0");
